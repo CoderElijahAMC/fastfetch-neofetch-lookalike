@@ -13,5 +13,8 @@ echo "Downloading fastfetch configuration file..."
 curl -L -o "$FASTFETCH/config.jsonc" https://raw.githubusercontent.com/fastfetch-cli/fastfetch/refs/heads/dev/presets/neofetch.jsonc
 echo "File successfully downloaded."
 
+echo "Disabling line wrapping..."
+sed -i '/"display"[[:space:]]*:/a\    "disableLinewrap": true,' "$FASTFETCH/config.jsonc"
+
 echo "Fastfetch successfully configured to look like neofetch."
 
